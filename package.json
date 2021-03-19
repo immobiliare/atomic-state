@@ -1,0 +1,67 @@
+{
+    "name": "@immobiliarelabs/state-atom",
+    "version": "0.2.0",
+    "description": "A minimal state management library for React inspired by Recoil.js",
+    "homepage": "https://github.com/immobiliare/state-atom",
+    "keywords": ["react", "state-manager", "recoil", "recoiljs", "state"],
+    "scripts": {
+        "build": "microbundle --format module,cjs",
+        "dev": "microbundle --format module,cjs",
+        "lint": "eslint --fix --ignore-path .gitignore .",
+        "release": "HUSKY_SKIP_HOOKS=1 standard-version",
+        "next": "HUSKY_SKIP_HOOKS=1 standard-version --prerelease",
+        "test": "tap --coverage-report=html --no-browser --watch",
+        "test:ci": "tap --coverage-report=text-summary"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:immobiliare/state-atom.git"
+    },
+    "source": "src/index.ts",
+    "main": "dist/state-atom.js",
+    "module": "dist/state-atom.module.js",
+    "types": "dist/index.d.ts",
+    "peerDependencies": {
+        "react": "^16.8.0 || ^17.0.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^12.0.1",
+        "@commitlint/config-conventional": "^12.0.1",
+        "@testing-library/react": "^11.2.5",
+        "@types/react": "^17.0.3",
+        "@types/react-dom": "^17.0.2",
+        "@types/tap": "^14.10.3",
+        "@types/testing-library__react": "^10.2.0",
+        "@types/use-subscription": "^1.0.0",
+        "@typescript-eslint/parser": "^4.17.0",
+        "conventional-gitlab-releaser": "^4.0.3",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^7.21.0",
+        "eslint-config-prettier": "^8.1.0",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-react": "^7.22.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "husky": "^4.3.8",
+        "jsdom": "16.4.x",
+        "lint-staged": "^10.5.4",
+        "markdown-toc": "^1.2.0",
+        "microbundle": "^0.13.0",
+        "prettier": "^2.2.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "standard-version": "^9.1.1",
+        "sucrase": "^3.17.1",
+        "tap": "^14.11.0"
+    },
+    "dependencies": {
+        "dequal": "^2.0.2",
+        "use-subscription": "^1.5.1"
+    },
+    "resolutions": {
+        "typescript": "4.1.x"
+    },
+    "workspaces": [
+        "devtools"
+    ]
+}

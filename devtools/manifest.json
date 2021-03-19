@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "State Atom DevTools",
+    "short_name": "State Atom DevTools",
+    "description": "State Atom DevTools",
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "devtools_page": "devtools.html",
+    "icons": {
+        "16": "assets/img/icon-16x16.png",
+        "48": "assets/img/icon-48x48.png",
+        "128": "assets/img/icon-128x128.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["content.js"],
+            "matches": ["<all_urls>"],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": ["assets/img/*"]
+}

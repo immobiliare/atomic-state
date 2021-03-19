@@ -1,0 +1,5 @@
+node-arg: [
+  --require=./test-setup.js,
+]
+ts: false
+files: test/**.test.tsx
