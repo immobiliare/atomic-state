@@ -1,32 +1,23 @@
-/* istanbul ignore file */
-import type { StateAtom } from '.';
+function serialize(state: any) {
+    if (!state) return state;
 
-function getAtomState(atom: StateAtom<any>) {
-    if (!atom.state) return atom.state;
-
-    return JSON.parse(JSON.stringify(atom.state));
+    return JSON.parse(JSON.stringify(state));
 }
 
-export function debugAtom(key: string, atom: StateAtom<any>) {
-    postMessage(
+export function sendMessageToDevTools(
+    key: string,
+    type: 'NEW_ATOM' | 'UPDATE_ATOM',
+    value: any
+) {
+    if (typeof window === 'undefined') return;
+
+    window.postMessage(
         {
             from: 'state-atom',
-            type: 'NEW_ATOM',
+            type,
             key,
-            value: getAtomState(atom),
+            value: serialize(value),
         },
         '*'
     );
-
-    atom.add(() => {
-        postMessage(
-            {
-                from: 'state-atom',
-                type: 'UPDATE_ATOM',
-                key,
-                value: getAtomState(atom),
-            },
-            '*'
-        );
-    });
 }
