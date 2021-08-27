@@ -1,0 +1,22 @@
+name: Release
+on: [workflow_dispatch]
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - name: Setup Node.js
+              uses: volta-cli/action@v1
+            - name: Install dependencies
+              run: yarn install
+            - name: Build the package
+              run: yarn build
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+              run: yarn semantic-release

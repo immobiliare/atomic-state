@@ -1,0 +1,36 @@
+name: Checks
+on: [push]
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: volta-cli/action@v1
+            - name: Install dependencies
+              run: yarn install
+            - name: Launch tests
+              run: yarn test:ci
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: volta-cli/action@v1
+            - name: Install dependencies
+              run: yarn install
+            - name: Build the package
+              run: yarn build
+    build-devtools:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: volta-cli/action@v1
+            - name: Install dependencies
+              run: yarn install
+            - name: Build the devtools
+              run: cd devtools && yarn build
