@@ -1,8 +1,9 @@
 # StateAtom
 
-![CI](https://github.com/immobiliare/wsse-header-generator-php/workflows/CI/badge.svg)
+![CI](https://github.com/immobiliare/state-atom/workflows/CI/badge.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
+![bundlephobia](https://badgen.net/bundlephobia/minzip/@immobiliarelabs/state-atom)
 
 > A decentralized state management library for React
 
@@ -257,7 +258,7 @@ For more info take a look into the [devtools docs](./devtools/README.md)
 ## Powered Apps
 
 StateAtom was created by the amazing frontend team at ImmobiliareLabs, the Tech dept at Immobiliare.it, the first real estate site in Italy.  
-We are currently using StateAtom in all of our products.
+We are currently using StateAtom in our products.
 
 **If you are using StateAtom in production [drop us a message](mailto://opensource@immobiliare.it)**.
 
