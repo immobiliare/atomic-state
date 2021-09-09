@@ -264,10 +264,7 @@ We are currently using StateAtom in our products.
 
 ## Support & Contribute
 
-<p align="center">
-Made with ❤️ by <a href="https://github.com/immobiliare">ImmobiliareLabs</a> and <a href="https://github.com/immobiliare/state-atom/blob/main/CONTRIBUTING.md#contributors">Contributors</a>
-<br clear="all">
-</p>
+Made with ❤️ by [ImmobiliareLabs](https://github.com/immobiliare) & [Contributors](./CONTRIBUTING.md#contributors)
 
 We'd love for you to contribute to StateAtom!
 If you have any questions on how to use StateAtom, bugs and enhancement please feel free to reach out by opening a [GitHub Issue](https://github.com/immobiliare/state-atom/issues).
