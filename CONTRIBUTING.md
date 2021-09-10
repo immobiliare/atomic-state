@@ -41,3 +41,4 @@ Simply run `yarn test`
 ## Contributors
 
 -   [`@gdorsi`](https://github.com/gdorsi)
+-   [`@JellyBellyDev`](https://github.com/JellyBellyDev)
