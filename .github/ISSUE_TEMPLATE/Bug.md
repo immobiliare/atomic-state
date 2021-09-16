@@ -1,17 +1,16 @@
 ---
-name: 🐞 Bug Report
-about: Something is broken? 🔨
+name: "\U0001F41E Bug Report"
+about: "Something is broken? \U0001F528"
 ---
 
 ### Bug Report
 
 <!-- Fill in the relevant information below to help triage your issue. -->
 
-|    Q               |   A
-|------------------- | ------
-| BC Break           | yes/no
-| State Atom Version | x.y.z
-
+| Q                   | A      |
+| ------------------- | ------ |
+| BC Break            | yes/no |
+| AtomicState Version | x.y.z  |
 
 #### Summary
 

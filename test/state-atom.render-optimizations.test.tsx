@@ -2,7 +2,7 @@ import tap from 'tap';
 import { cleanup, render, screen, fireEvent } from '@testing-library/react';
 import React, { useReducer, useRef, useState } from 'react';
 import {
-    StateAtomProvider,
+    AtomicStateProvider,
     createStateAtom,
     useAtomValue,
     createDerivedAtom,
@@ -64,10 +64,10 @@ tap.test(
         }
 
         const { getByLabelText, getByTestId } = render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <TestForm />
                 <UserProfile />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         const nameInput = getByLabelText('Name');
@@ -112,12 +112,12 @@ tap.test(
         }
 
         const { getByLabelText, getByTestId } = render(
-            <StateAtomProvider
+            <AtomicStateProvider
                 state={{ [userAtom.key]: { name: 'Ken', surname: 'Shiro' } }}
             >
                 <TestForm />
                 <UserProfile />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         const nameInput = getByLabelText('Name');
@@ -183,9 +183,9 @@ tap.test(
         }
 
         const { getByLabelText, getByTestId } = render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <DescriptionForm />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         const input = getByLabelText('Description');

@@ -11,7 +11,7 @@ export function useStateAtomLog() {
 
     useEffect(() => {
         const currentPort = browser.runtime.connect(browser.runtime.id, {
-            name: 'state-atom-panel',
+            name: 'atomic-state-panel',
         });
 
         currentPort.onMessage.addListener(
@@ -40,9 +40,10 @@ export function useStateAtomLog() {
         };
     }, []);
 
-    return useMemo(() => Object.values(state).sort((a, b) => a.time - b.time), [
-        state,
-    ]);
+    return useMemo(
+        () => Object.values(state).sort((a, b) => a.time - b.time),
+        [state]
+    );
 }
 
 export function useStateAtomReducedLog(log: ATOM_LOG) {

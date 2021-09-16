@@ -1740,9 +1740,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@immobiliarelabs/state-atom-devtools@workspace:devtools":
+"@immobiliarelabs/atomic-state-devtools@workspace:devtools":
   version: 0.0.0-use.local
-  resolution: "@immobiliarelabs/state-atom-devtools@workspace:devtools"
+  resolution: "@immobiliarelabs/atomic-state-devtools@workspace:devtools"
   dependencies:
     "@babel/core": ^7.15.0
     "@babel/plugin-proposal-class-properties": ^7.14.5
@@ -1769,9 +1769,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@immobiliarelabs/state-atom@workspace:.":
+"@immobiliarelabs/atomic-state@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@immobiliarelabs/state-atom@workspace:."
+  resolution: "@immobiliarelabs/atomic-state@workspace:."
   dependencies:
     "@commitlint/cli": ^13.1.0
     "@commitlint/config-conventional": ^13.1.0

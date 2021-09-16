@@ -1,7 +1,7 @@
 import { browser } from 'webextension-polyfill-ts';
 
 browser.devtools.panels.create(
-    'State Atom',
+    'AtomicState',
     '/assets/icons/logo.svg',
     '/devtools-panel.html'
 );
