@@ -13,7 +13,7 @@ export function sendMessageToDevTools(
 
     window.postMessage(
         {
-            from: 'state-atom',
+            from: 'atomic-state',
             type,
             key,
             value: serialize(value),

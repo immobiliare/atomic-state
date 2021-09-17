@@ -1,21 +1,21 @@
-# StateAtom
+# AtomicState
 
-![CI](https://github.com/immobiliare/state-atom/workflows/CI/badge.svg)
+![CI](https://github.com/immobiliare/atomic-state/workflows/CI/badge.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
-![bundlephobia](https://badgen.net/bundlephobia/minzip/@immobiliarelabs/state-atom)
+![bundlephobia](https://badgen.net/bundlephobia/minzip/@immobiliarelabs/atomic-state)
 
 > A decentralized state management library for React
 
 Sometimes when you have to share some state between components you also add some complexity to it (lifting the state up, adding a context or dirtying your global state manager).
 
-StateAtom brings to you a way to **share state** in a **simple** and **decentralized** way **without burdening your app size and complexity**.
+AtomicState brings to you a way to **share state** in a **simple** and **decentralized** way **without burdening your app size and complexity**.
 
 ## Features Highlights
 
--   💡 **Simple & Reactish**: Use StateAtom without learning new concepts because it works like the React API that you already know
--   💡 **Small footprint**: StateAtom wieghts only 1.5Kb (gzip) on your production bundle
--   💡 **SSR ready**: Server Side Rendering is a first-class citizen for StateAtom and it works like a breeze
+-   💡 **Simple & Reactish**: Use AtomicState without learning new concepts because it works like the React API that you already know
+-   💡 **Small footprint**: AtomicState wieghts only 1.5Kb (gzip) on your production bundle
+-   💡 **SSR ready**: Server Side Rendering is a first-class citizen for AtomicState and it works like a breeze
 -   💡 **Integrated DevTools**: Install the official devtools from the Chrome Web Store and take a look in your atoms!
 -   💡 **Decentralized**: The state atoms can be loaded only when they are needed enabling you to do lazy load without troubles.
 
@@ -36,31 +36,31 @@ StateAtom brings to you a way to **share state** in a **simple** and **decentral
 
 Sharing some state across components sometimes is more complex than it should be.
 
-With StateAtom it will be clean and simple:
+With AtomicState it will be clean and simple:
 
-`./doYouKnowStateAtom.js`
+`./doYouKnowAtomicState.js`
 
 ```jsx
-import { createStateAtom } from '@immobiliarelabs/state-atom';
+import { createStateAtom } from '@immobiliarelabs/atomic-state';
 
 // This is an atom a container for a piece of state
-export const doYouKnowStateAtom = createStateAtom({
-    key: `DoYoyKnowStateAtom`, // unique ID
+export const doYouKnowAtomicState = createStateAtom({
+    key: `DoYoyKnowAtomicState`, // unique ID
     default: null, // default value (aka initial value)
 });
 ```
 
 By importing the created atom you can read and modify the state wherever you want:
 
-`./DoYoyKnowStateAtomDisclamer.js`
+`./DoYoyKnowAtomicStateDisclamer.js`
 
 ```jsx
-import { useStateAtom } from '@immobiliarelabs/state-atom';
-import { doYouKnowStateAtom } from './doYouKnowStateAtom';
+import { useStateAtom } from '@immobiliarelabs/atomic-state';
+import { doYouKnowAtomicState } from './doYouKnowAtomicState';
 
-export function DoYoyKnowStateAtomDisclamer() {
+export function DoYoyKnowAtomicStateDisclamer() {
     // useStateAtom is like a shared version of useState
-    const [answer, setAnswer] = useStateAtom(doYouKnowStateAtom);
+    const [answer, setAnswer] = useStateAtom(doYouKnowAtomicState);
 
     if (answer) {
         return null;
@@ -68,7 +68,7 @@ export function DoYoyKnowStateAtomDisclamer() {
 
     return (
         <div>
-            Hey! Do you know StateAtom?
+            Hey! Do you know AtomicState?
             <button onClick={() => setAnswer('yes')}>Yes!</button>
             <button onClick={() => setAnswer('no')}>No!</button>
         </div>
@@ -76,20 +76,20 @@ export function DoYoyKnowStateAtomDisclamer() {
 }
 ```
 
-`./DoYoyKnowStateAtomLinks.js`
+`./DoYoyKnowAtomicStateLinks.js`
 
 ```jsx
-import { useStateAtom } from '@immobiliarelabs/state-atom';
-import { doYouKnowStateAtom } from './doYouKnowStateAtom';
+import { useStateAtom } from '@immobiliarelabs/atomic-state';
+import { doYouKnowAtomicState } from './doYouKnowAtomicState';
 
-export function DoYoyKnowStateAtomLinks() {
-    const [answer] = useStateAtom(doYouKnowStateAtom);
+export function DoYoyKnowAtomicStateLinks() {
+    const [answer] = useStateAtom(doYouKnowAtomicState);
 
     if (answer === 'no') {
         return (
             <div>
                 Oh really!?! Take a look{' '}
-                <a href="https://github.com/immobiliare/state-atom">here</a>,
+                <a href="https://github.com/immobiliare/atomic-state">here</a>,
                 it's easy to pick up!
             </div>
         );
@@ -106,13 +106,13 @@ That's it and if you want to know more read the below docs!
 To install the latest stable version, run the following command:
 
 ```
-npm install @immobiliarelabs/state-atom
+npm install @immobiliarelabs/atomic-state
 ```
 
 Or if you're using yarn:
 
 ```
-yarn add @immobiliarelabs/state-atom
+yarn add @immobiliarelabs/atomic-state
 ```
 
 ### What is an atom?
@@ -120,7 +120,7 @@ yarn add @immobiliarelabs/state-atom
 An atom represents a piece of state. Atoms can be read from and written to from any component. Components that read the value of an atom are implicitly subscribed to that atom, so any atom updates will result in a re-render of all components subscribed to that atom:
 
 ```tsx
-import { createStateAtom, useStateAtom } from '@immobiliarelabs/state-atom';
+import { createStateAtom, useStateAtom } from '@immobiliarelabs/atomic-state';
 
 const yourNameAtom = createStateAtom({
     key: `YourName`, // unique ID
@@ -156,7 +156,7 @@ Derived atoms can be used to derive information from other atoms. They cache the
 Conceptually, they are very similar to formulas in spreadsheets, and can't be underestimated. They help in reducing the amount of state you have to store and are highly optimized. Use them wherever possible.
 
 ```tsx
-import { createDerivedAtom, useAtomValue } from '@immobiliarelabs/state-atom';
+import { createDerivedAtom, useAtomValue } from '@immobiliarelabs/atomic-state';
 import { yourNameAtom } from './TextInput';
 
 const yourNameIsFilledAtom = createDerivedAtom({
@@ -181,7 +181,7 @@ Atom effects are works in a similar way of React [useEffect](https://reactjs.org
 They have the same [cleanup](https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup) api and are executed only on the client side.
 
 ```tsx
-import { createStateAtom, useStateAtom } from '@immobiliarelabs/state-atom';
+import { createStateAtom, useStateAtom } from '@immobiliarelabs/atomic-state';
 
 const persistentModeAtom = createStateAtom({
     key: `PersistentMode`,
@@ -217,16 +217,16 @@ Under the hood the atom effects are managed through React useEffect, so even in 
 
 ### Server Side Rendering
 
-The first thing you have to do is place the StateAtomProvider on top of your applications.
+The first thing you have to do is place the AtomicStateProvider on top of your applications.
 
 It is possible to hydrate the atoms state by passing a state object to it.
 
 ```tsx
 import {
     createStateAtom,
-    StateAtomProvider,
-} from '@immobiliarelabs/state-atom';
-import { myFormStateAtom } from './atoms';
+    AtomicStateProvider,
+} from '@immobiliarelabs/atomic-state';
+import { myFormAtom } from './atoms';
 
 function MyApp({ formInitialState }) {
     /**
@@ -236,40 +236,40 @@ function MyApp({ formInitialState }) {
      */
     const atomsState = useMemo(
         () => ({
-            [myFormStateAtom.key]: formInitialState,
+            [myFormAtom.key]: formInitialState,
         }),
         [formInitialState]
     );
 
     return (
-        <StateAtomProvider state={atomsState}>
+        <AtomicStateProvider state={atomsState}>
             <AppCore />
-        </StateAtomProvider>
+        </AtomicStateProvider>
     );
 }
 ```
 
 ### DevTools
 
-We have a devtools extension for [Chrome](https://chrome.google.com/webstore/detail/state-atom-devtools/mhdnjcangakajcinldiniomklbmmjcka)
+We have a devtools extension for [Chrome](https://chrome.google.com/webstore/detail/atomic-state-devtools/mhdnjcangakajcinldiniomklbmmjcka)
 
 For more info take a look into the [devtools docs](./devtools/README.md)
 
 ## Powered Apps
 
-StateAtom was created by the amazing frontend team at ImmobiliareLabs, the Tech dept at Immobiliare.it, the first real estate site in Italy.  
-We are currently using StateAtom in our products.
+AtomicState was created by the amazing frontend team at ImmobiliareLabs, the Tech dept at Immobiliare.it, the first real estate site in Italy.  
+We are currently using AtomicState in our products.
 
-**If you are using StateAtom in production [drop us a message](mailto://opensource@immobiliare.it)**.
+**If you are using AtomicState in production [drop us a message](mailto://opensource@immobiliare.it)**.
 
 ## Support & Contribute
 
 Made with ❤️ by [ImmobiliareLabs](https://github.com/immobiliare) & [Contributors](./CONTRIBUTING.md#contributors)
 
-We'd love for you to contribute to StateAtom!
-If you have any questions on how to use StateAtom, bugs and enhancement please feel free to reach out by opening a [GitHub Issue](https://github.com/immobiliare/state-atom/issues).
+We'd love for you to contribute to AtomicState!
+If you have any questions on how to use AtomicState, bugs and enhancement please feel free to reach out by opening a [GitHub Issue](https://github.com/immobiliare/atomic-state/issues).
 
 ## License
 
-StateAtom is licensed under the MIT license.  
+AtomicState is licensed under the MIT license.  
 See the [LICENSE](./LICENSE) file for more information.

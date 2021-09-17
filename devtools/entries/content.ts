@@ -22,7 +22,7 @@ const sendData = (data: CONTENT_TO_BACKGROUND_MESSAGE) =>
 let id = 0;
 
 window.onmessage = ({ data }: { data: ATOM_EVENT }) => {
-    if (data && data.from === 'state-atom') {
+    if (data && data.from === 'atomic-state') {
         const payload = {
             type: data.type,
             key: data.key,
@@ -33,7 +33,7 @@ window.onmessage = ({ data }: { data: ATOM_EVENT }) => {
 
         if (!port) {
             port = browser.runtime.connect(browser.runtime.id, {
-                name: 'state-atom-devtool',
+                name: 'atomic-state-devtool',
             });
 
             port.onMessage.addListener(() => {

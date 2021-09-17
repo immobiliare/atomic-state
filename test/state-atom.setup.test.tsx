@@ -2,7 +2,7 @@ import tap from 'tap';
 import { cleanup, render, screen, fireEvent } from '@testing-library/react';
 import React, { useState } from 'react';
 import {
-    StateAtomProvider,
+    AtomicStateProvider,
     createStateAtom,
     useAtom,
     useAtomValue,
@@ -71,10 +71,10 @@ tap.test(
     '[StateAtom/setup] Watch callback should be triggered during setup',
     async (t) => {
         const { queryByText } = render(
-            <StateAtomProvider state={{ [nameAtom.key]: 'Guido' }}>
+            <AtomicStateProvider state={{ [nameAtom.key]: 'Guido' }}>
                 <TestForm />
                 <FormTouchedDisclamer />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         t.true(
@@ -90,10 +90,10 @@ tap.test(
     '[StateAtom/setup] Watch callback should be triggered when the target atom is updated',
     async (t) => {
         const { queryByText, getByLabelText } = render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <TestForm />
                 <FormTouchedDisclamer />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         t.false(
@@ -149,9 +149,9 @@ tap.test(
 
         tap.throws(() => {
             render(
-                <StateAtomProvider>
+                <AtomicStateProvider>
                     <CicurlarReferenceComponent />
-                </StateAtomProvider>
+                </AtomicStateProvider>
             );
         }, new Error(`Detected circular reference from ${strangeCountAAtom.key}`));
 
@@ -187,9 +187,9 @@ tap.test(
 
         tap.throws(() => {
             render(
-                <StateAtomProvider>
+                <AtomicStateProvider>
                     <CicurlarReference2Component />
-                </StateAtomProvider>
+                </AtomicStateProvider>
             );
         }, new Error(`Detected circular reference from ${strangeCountAAtom.key}`));
 
@@ -221,9 +221,9 @@ tap.test(
         console.warn = (value: string) => warnings.push(value);
 
         render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <NestedWatchComponent />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         console.warn = warn;
@@ -271,9 +271,9 @@ tap.test(
             return (
                 <>
                     <div onClick={() => setMounted(false)}>Click me</div>
-                    <StateAtomProvider>
+                    <AtomicStateProvider>
                         <Test />
-                    </StateAtomProvider>
+                    </AtomicStateProvider>
                 </>
             );
         }

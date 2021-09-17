@@ -89,7 +89,7 @@ function makeContext(state: Record<string, any>) {
     }
 
     /**
-     * The State Atom Core
+     * The AtomicState Core
      *
      * This is the function that creates and reuses existing atoms
      */
@@ -535,7 +535,10 @@ export type StateAtomProviderProps = {
  *
  * This should be placed on the root of your application.
  */
-export function StateAtomProvider({ children, state }: StateAtomProviderProps) {
+export function AtomicStateProvider({
+    children,
+    state,
+}: StateAtomProviderProps) {
     const value = useMemo(() => makeContext(state || {}), []);
     const [, forceRender] = useReducer((s) => !s, false);
 

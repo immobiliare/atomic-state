@@ -1,10 +1,10 @@
 {
     "version": "0.3.7",
-    "name": "@immobiliarelabs/state-atom-devtools",
+    "name": "@immobiliarelabs/atomic-state-devtools",
     "private": true,
     "scripts": {
         "build": "rm -rf dist && NODE_ENV=production yarn webpack -c webpack.config.js --mode production && web-ext build -o",
-        "release": "yarn build && web-ext sign --id=extension@state-atom.devtools --channel=listed",
+        "release": "yarn build && web-ext sign --id=extension@atomic-state.devtools --channel=listed",
         "dev": "NODE_ENV=development yarn webpack -c webpack.config.js --mode development -w",
         "start:chrome": "web-ext run -t chromium",
         "start:firefox": "web-ext run",

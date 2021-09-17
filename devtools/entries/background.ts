@@ -7,10 +7,10 @@ import {
 
 function connected(currentPort: Runtime.Port) {
     switch (currentPort.name) {
-        case 'state-atom-panel':
+        case 'atomic-state-panel':
             handleDevToolPanel(currentPort);
             break;
-        case 'state-atom-devtool':
+        case 'atomic-state-devtool':
             handleContent(currentPort);
     }
 }

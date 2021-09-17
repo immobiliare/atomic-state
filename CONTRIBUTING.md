@@ -1,4 +1,4 @@
-# Contributing to StateAtom
+# Contributing to AtomicState
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local device.
 2. Create a new branch `git checkout -b MY_BRANCH_NAME`
@@ -10,13 +10,13 @@
 
 Simply run `yarn test`
 
-## Running your own app with locally compiled version of StateAtom
+## Running your own app with locally compiled version of AtomicState
 
 1. In your app's `package.json`, add:
 
     ```json
     "resolutions": {
-        "@immobiliarelabs/state-atom": "file:<local-path-to-cloned-repo>",
+        "@immobiliarelabs/atomic-state": "file:<local-path-to-cloned-repo>",
     }
     ```
 
@@ -28,7 +28,7 @@ Simply run `yarn test`
 
     to re-install all of the dependencies.
 
-    Note that StateAtom will be copied from the locally compiled version as opposed to from being downloaded from the NPM registry.
+    Note that AtomicState will be copied from the locally compiled version as opposed to from being downloaded from the NPM registry.
 
 3. Run your application as you normally would.
 

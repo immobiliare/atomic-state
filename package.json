@@ -1,11 +1,14 @@
 {
-    "name": "@immobiliarelabs/state-atom",
+    "name": "@immobiliarelabs/atomic-state",
     "version": "0.3.0",
     "description": "A decentralized state management library for React inspired by Recoil.js",
-    "homepage": "https://github.com/immobiliare/state-atom",
+    "homepage": "https://github.com/immobiliare/atomic-state",
     "keywords": [
         "react",
         "state-manager",
+        "state-management",
+        "state-atom",
+        "atomic-state",
         "recoil",
         "recoiljs",
         "state"
@@ -25,11 +28,11 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:immobiliare/state-atom.git"
+        "url": "git@github.com:immobiliare/atomic-state.git"
     },
     "source": "src/index.ts",
-    "main": "dist/state-atom.js",
-    "module": "dist/state-atom.module.js",
+    "main": "dist/atomic-state.js",
+    "module": "dist/atomic-state.module.js",
     "types": "dist/index.d.ts",
     "peerDependencies": {
         "react": "^16.8.0 || ^17.0.0"

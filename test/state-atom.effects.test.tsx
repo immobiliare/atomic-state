@@ -1,6 +1,6 @@
 import tap from 'tap';
 import { cleanup, render, fireEvent } from '@testing-library/react';
-import { StateAtomProvider, createStateAtom, useStateAtom } from '../src';
+import { AtomicStateProvider, createStateAtom, useStateAtom } from '../src';
 
 // this because DOM is shared between tests
 tap.afterEach(() => cleanup());
@@ -50,9 +50,9 @@ tap.test(
     '[StateAtom/effects] The atom effects are executed on startup',
     async (t) => {
         render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <CookieBar />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         t.same(
@@ -69,9 +69,9 @@ tap.test(
     '[StateAtom/effects] The atom effects are executed on state change',
     async (t) => {
         const { getByTestId } = render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <CookieBar />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         fireEvent.click(getByTestId('cookiebar'));

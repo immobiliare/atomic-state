@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "State Atom DevTools",
-    "short_name": "State Atom DevTools",
-    "description": "State Atom DevTools",
+    "name": "AtomicState DevTools",
+    "short_name": "AtomicState DevTools",
+    "description": "AtomicState DevTools",
     "background": {
         "scripts": ["background.js"]
     },

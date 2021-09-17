@@ -2,7 +2,7 @@ import tap from 'tap';
 import { cleanup, render, fireEvent } from '@testing-library/react';
 import React, { useReducer, useState } from 'react';
 import {
-    StateAtomProvider,
+    AtomicStateProvider,
     createStateAtom,
     useAtomValue,
     useStateAtom,
@@ -61,10 +61,10 @@ tap.test(
         }
 
         const { getByLabelText, getByTestId } = render(
-            <StateAtomProvider>
+            <AtomicStateProvider>
                 <TestForm />
                 <UserProfile />
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
 
         const nameInput = getByLabelText('Name');
@@ -107,11 +107,11 @@ tap.test('[StateAtom] Initial State is loaded inside atoms', async (t) => {
     }
 
     const { getByTestId } = render(
-        <StateAtomProvider
+        <AtomicStateProvider
             state={{ [nameAtom.key]: 'Ken', [surnameAtom.key]: 'Shiro' }}
         >
             <UserProfile />
-        </StateAtomProvider>
+        </AtomicStateProvider>
     );
 
     const userProfile = getByTestId('user-profile');
@@ -140,12 +140,12 @@ tap.test('[StateAtom] Derived atom should be updated on change', async (t) => {
     }
 
     const { getByLabelText, getByTestId } = render(
-        <StateAtomProvider
+        <AtomicStateProvider
             state={{ [nameAtom.key]: 'Ken', [surnameAtom.key]: 'Shiro' }}
         >
             <TestForm />
             <UserProfile />
-        </StateAtomProvider>
+        </AtomicStateProvider>
     );
 
     const userProfile = getByTestId('user-profile');
@@ -194,7 +194,7 @@ tap.test(
             const [surname, setSurname] = useState('Shiro');
 
             return (
-                <StateAtomProvider
+                <AtomicStateProvider
                     state={{ [nameAtom.key]: name, [surnameAtom.key]: surname }}
                 >
                     <form>
@@ -214,7 +214,7 @@ tap.test(
                         />
                     </form>
                     <UserProfile />
-                </StateAtomProvider>
+                </AtomicStateProvider>
             );
         }
 
@@ -264,13 +264,13 @@ tap.test('[StateAtom] The inital state is updated by reference', async (t) => {
         const [, forceUpdate] = useReducer((s) => !s, false);
 
         return (
-            <StateAtomProvider
+            <AtomicStateProvider
                 state={{ [nameAtom.key]: 'Ken', [surnameAtom.key]: 'Shiro' }}
             >
                 <TestForm />
                 <UserProfile />
                 <button onClick={forceUpdate}>Refresh</button>
-            </StateAtomProvider>
+            </AtomicStateProvider>
         );
     }
 
@@ -346,11 +346,11 @@ tap.test('[StateAtom] The atom state is frozen', async (t) => {
     }
 
     const { getByTestId } = render(
-        <StateAtomProvider
+        <AtomicStateProvider
             state={{ [nameAtom.key]: 'Ken', [surnameAtom.key]: 'Shiro' }}
         >
             <UserProfile />
-        </StateAtomProvider>
+        </AtomicStateProvider>
     );
 
     const userProfile = getByTestId('user-profile');
