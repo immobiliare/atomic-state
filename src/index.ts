@@ -495,7 +495,7 @@ export function createDerivedAtom<S, U = S>({
         const setState: StateUpdateDispatcher<S> = atom.setState as any;
 
         function revalidate() {
-            setState(get(api));
+            setState(get(getAPI));
         }
 
         atom.setState = (state) => {
