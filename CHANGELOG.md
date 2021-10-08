@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/immobiliare/atomic-state/compare/v1.0.0...v1.0.1) (2021-10-08)
+
+
+### Bug Fixes
+
+* add atom listeners on derived atom update ([c9e4bb1](https://github.com/immobiliare/atomic-state/commit/c9e4bb126de51e0cb964166c7bdb0fe8cc27a369))
+
 # 1.0.0 (2021-09-17)
 
 

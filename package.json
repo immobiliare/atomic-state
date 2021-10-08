@@ -1,6 +1,6 @@
 {
     "name": "@immobiliarelabs/atomic-state",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A decentralized state management library for React inspired by Recoil.js",
     "homepage": "https://github.com/immobiliare/atomic-state",
     "keywords": [
