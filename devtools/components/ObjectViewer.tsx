@@ -22,8 +22,8 @@ export function ObjectViewer({ data }: { data: any }) {
                 base0C: '#3971ED',
                 base0D: '#3971ED',
                 base0E: '#A36AC7',
-                base0F: '#3971ED'
-              }}
+                base0F: '#3971ED',
+            }}
         />
     );
 }
