@@ -13,13 +13,58 @@ const highlight = keyframes`
   }
 `;
 
+const ContainerStyle = css({
+    display: 'flex',
+    flexDirection: 'column-reverse',
+    background: '#ddd',
+    width: '100%',
+    gap: '6px',
+});
+
+const RowStyle = css({
+    background: '#fff',
+    border: '1px solid #ddd',
+});
+
+const MainRowStyle = css({
+    fontWeight: '600' as 'bold',
+    padding: '4px 0 0 8px',
+    animation: `${highlight} 0.6s`,
+});
+
+const ButtonToggleStyle = css({
+    display: 'inline-block',
+    marginRight: '2px',
+    fontWeight: '400' as 'bolder',
+    fontSize: '0.8em',
+    float: 'right',
+    padding: '1px',
+});
+
+const NewLabelStyle = css({
+    display: 'inline-block',
+    marginLeft: '2px',
+    fontWeight: '400' as 'bolder',
+    fontSize: '0.5em',
+    background: 'green',
+    color: 'white',
+    padding: '1px',
+});
+
+const UpdateLabelStyle = css({
+    display: 'inline-block',
+    marginLeft: '2px',
+    fontWeight: '400' as 'bolder',
+    fontSize: '0.8em',
+});
+
 export function LogView({ data }: { data: ATOM_LOG }) {
     const [hiddenKeys, setHiddenKeys] = useState<string[]>(() => {
         const saved = localStorage.getItem('hiddenKeys');
 
         if (saved) return JSON.parse(saved);
 
-        return []
+        return [];
     });
 
     function toggleKey(key: string) {
@@ -35,15 +80,7 @@ export function LogView({ data }: { data: ATOM_LOG }) {
     }, [hiddenKeys]);
 
     return data.length ? (
-        <div
-            css={css`
-                display: flex;
-                flex-direction: column-reverse;
-                background: #ddd;
-                width: 100%;
-                gap: 6px;
-            `}
-        >
+        <div css={ContainerStyle}>
             {data.map(({ key, value, uid, type }, i, list) => {
                 const sameAsPrev = list[i - 1] && list[i - 1].key === key;
                 const sameAsNext = list[i + 1] && list[i + 1].key === key;
@@ -64,59 +101,21 @@ export function LogView({ data }: { data: ATOM_LOG }) {
                 if (sameAsNext && !visible) return null;
 
                 return (
-                    <div
-                        css={css`
-                            background: #fff;
-                            border: 1px solid #ddd;
-                        `}
-                        key={uid}
-                    >
+                    <div css={RowStyle} key={uid}>
                         {!sameAsNext && (
-                            <div
-                                css={css`
-                                    font-weight: 600;
-                                    padding: 4px 0 0 8px;
-                                    animation: ${highlight} 0.6s;
-                                `}
-                            >
+                            <div css={MainRowStyle}>
                                 {key}
                                 <button
-                                    css={css`
-                                        display: inline-block;
-                                        margin-right: 2px;
-                                        font-weight: 400;
-                                        font-size: 0.8em;
-                                        float: right;
-                                        padding: 1px;
-                                    `}
+                                    css={ButtonToggleStyle}
                                     onClick={() => toggleKey(key)}
                                 >
                                     {visible ? 'hide' : 'show'}
                                 </button>
                                 {type === 'NEW_ATOM' ? (
-                                    <span
-                                        css={css`
-                                            display: inline-block;
-                                            margin-left: 2px;
-                                            font-weight: 400;
-                                            font-size: 0.5em;
-                                            background: green;
-                                            color: white;
-                                            padding: 1px;
-                                        `}
-                                    >
-                                        NEW
-                                    </span>
+                                    <span css={NewLabelStyle}>NEW</span>
                                 ) : null}
                                 {updates > 1 ? (
-                                    <span
-                                        css={css`
-                                            display: inline-block;
-                                            margin-left: 2px;
-                                            font-weight: 400;
-                                            font-size: 0.8em;
-                                        `}
-                                    >
+                                    <span css={UpdateLabelStyle}>
                                         {updates} updates
                                     </span>
                                 ) : null}
