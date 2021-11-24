@@ -22,7 +22,7 @@ const sendData = (data: CONTENT_TO_BACKGROUND_MESSAGE) =>
 let id = 0;
 
 window.onmessage = ({ data }: { data: ATOM_EVENT }) => {
-    if (data && data.from === 'atomic-state') {
+    if (data && data.from === 'state-atom') {
         const payload = {
             type: data.type,
             key: data.key,
