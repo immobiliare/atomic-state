@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/immobiliare/atomic-state/compare/v1.0.1...v1.0.2) (2021-11-24)
+
+
+### Bug Fixes
+
+* **devtools:** makes the currently installed devtools work again ([#15](https://github.com/immobiliare/atomic-state/issues/15)) ([555a674](https://github.com/immobiliare/atomic-state/commit/555a67433a07a092b6c622cebefb18809dfe7fd5))
+
 ## [1.0.1](https://github.com/immobiliare/atomic-state/compare/v1.0.0...v1.0.1) (2021-10-08)
 
 
