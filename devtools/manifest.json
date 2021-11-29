@@ -1,5 +1,6 @@
 {
     "manifest_version": 2,
+    "version": "0.4.0",
     "name": "AtomicState DevTools",
     "short_name": "AtomicState DevTools",
     "description": "AtomicState DevTools",
